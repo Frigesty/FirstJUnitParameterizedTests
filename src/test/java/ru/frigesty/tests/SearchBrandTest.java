@@ -21,7 +21,7 @@ public class SearchBrandTest {
     @DisplayName("Отображение категории в поиске товара")
     @ParameterizedTest(name = "Для поиского запроса {0} отображается категория {1} на странице с результатом поиска")
     @Tag("Search")
-    void brandSearchMVideo(String productName, String categoryName){
+    void brandSearchMVideoTest(String productName, String categoryName){
         $(".input.style-big").setValue(productName).pressEnter();
         $(".catalog-filter-categories-list").shouldBe(visible).shouldHave(text(categoryName)) ;
     }

@@ -1,6 +1,5 @@
 package ru.frigesty.tests;
 
-import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -28,8 +27,7 @@ public class ButtonCheckTest extends TestBase {
     @DisplayName("Кнопки ведут на нужную страницу")
     @ParameterizedTest(name = "При нажатии на кнопку {0} в header мы поподаем на страницу с надписью {1}")
     @Tag("Buttons")
-    public void jutSuButtonCheck(String link, String header){
-        Configuration.holdBrowserOpen = true;
+    public void jutSuButtonCheckTest(String link, String header){
         $(".top_nav_b ul").$(byText(link)).click();
         $(".content h1").shouldHave(text(header));
     }

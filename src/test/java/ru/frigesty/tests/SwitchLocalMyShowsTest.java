@@ -16,7 +16,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
 public class SwitchLocalMyShowsTest {
-    static Stream<Arguments> siteShouldContainAllButtonsAfterLanguageSelection() {
+    static Stream<Arguments> siteShouldContainAllButtonsAfterLanguageSelectionTest() {
         return Stream.of(
                 Arguments.of(Locale.UA, List.of("Серіали", "Фільми", "Новини", "Спільнота", "Рейтинги")),
                 Arguments.of(Locale.RU, List.of("Сериалы", "Фильмы", "Новости", "Сообщество", "Рейтинги")),
@@ -33,7 +33,7 @@ public class SwitchLocalMyShowsTest {
     @DisplayName("Смена языка и отображение кнопок")
     @ParameterizedTest(name = "Для локали {0} отображаются кнопки {1}")
     @Tag("Language")
-    void siteShouldContainAllButtonsAfterLanguageSelection(Locale Locale, List<String> buttons) {
+    void siteShouldContainAllButtonsAfterLanguageSelectionTest(Locale Locale, List<String> buttons) {
         $(".LangSwitcher-current").click();
         $$(".LangSwitcher-options .LangSwitcher-optionText").find(text(Locale.name())).click();
         $$(".Header-nav li a span").shouldHave(texts(buttons));
