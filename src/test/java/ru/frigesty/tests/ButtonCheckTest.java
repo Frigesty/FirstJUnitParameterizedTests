@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class ButtonCheck extends TestBase {
+public class ButtonCheckTest extends TestBase {
     @BeforeEach
     void openSite(){
         open("https://jut.su/");
@@ -25,10 +25,10 @@ public class ButtonCheck extends TestBase {
             "Огонь, Техники огня",
             "Чакра, Техники простой чакры"
     })
-    @DisplayName("При нажатии на кнопку {0} в header мы поподаем на страницу с надписью {1}")
-    @ParameterizedTest
+    @DisplayName("Кнопки ведут на нужную страницу")
+    @ParameterizedTest(name = "При нажатии на кнопку {0} в header мы поподаем на страницу с надписью {1}")
     @Tag("Buttons")
-    public void JutSuButtonCheck(String link, String header){
+    public void jutSuButtonCheck(String link, String header){
         Configuration.holdBrowserOpen = true;
         $(".top_nav_b ul").$(byText(link)).click();
         $(".content h1").shouldHave(text(header));
